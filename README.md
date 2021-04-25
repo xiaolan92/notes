@@ -21,3 +21,41 @@ let fomartTime = (time) =>{
          console.log(fomartTime(4764)); // 01:19:24
  ```
  倒计时就可以这样做(通常后端传的都是一个时间戳).
+ 
+ ***
+今天(2021-04-25)做项目的时候遇到后端传来一个时间戳,要求转换为年月日时分秒的形式,为此来总结一波:
+```
+/**
+ * 
+ * @param {*} time  时间戳
+ */
+export const formatDateTime = (time, seperator = "-") => {
+    let date = new Date(time),
+        fmt = `yyyy${seperator}MM${seperator}dd hh:mm:ss`;
+    const o = {
+        "M+": date.getMonth() + 1,
+        "d+": date.getDate(),
+        "h+": date.getHours(),
+        "m+": date.getMinutes(),
+        "s+": date.getSeconds(),
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt.replace(RegExp.$1, date.getFullYear());
+
+    }
+    for (let k in o) {
+        if (new RegExp('(' + o[k] + ')').test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, String(o[k]).padStart(2,"0"));
+
+        }
+
+    }
+    return fmt;
+
+};
+
+console.log(formatDateTime(1572728572986)) // 2019-11-03 05:02:52
+console.log(formatDateTime("2019-10-11T05:04:02.506Z")) // 2019-10-11 13:04:02
+console.log(formatDateTime("Fri Oct 11 2019 13:04:02 GMT+0800")) // 这个是东八区时间格式,2019-10-11 13:04:02
+
+```
