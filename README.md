@@ -59,3 +59,31 @@ console.log(formatDateTime("2019-10-11T05:04:02.506Z")) // 2019-10-11 13:04:02
 console.log(formatDateTime("Fri Oct 11 2019 13:04:02 GMT+0800")) // 这个是东八区时间格式,2019-10-11 13:04:02
 
 ```
+***
+今天(2021.08.24) 来总结一波
+有时说话啊，不要太过于早下结论了，搞到最后容易打自己脸(过去的事就让它过去吧,人生嘛，总是不断的经历，不断在经历中去成长)。
+
+最近公司要做微信名片分享，决定提前做技术储备，免得到时手慌脚乱。
+```
+// canvas 画矩形圆角边框
+drawSquare(context,x,y,w,h,radius){
+	context.beginPath();
+	context.moveTo(x + radius,y);
+	context.lineTo(x + w - radius,y),
+	// 右上角圆
+	context.arcTo(x + w,y,x + w,y + radius,radius);
+	context.lineTo(x + w,y + h - radius);
+	// 右下角圆
+	context.arcTo(x + w,y + h,x + y - radius,y+h,radius);
+	context.lineTo(x + radius,y + h);
+	// 左下角圆
+	context.arcTo(x,y+h,x,y+h-radius,radius)
+	context.lineTo(x,y+radius);
+	// 左上角
+	context.arcTo(x,y,x+radius,y,radius)
+	context.closePath();
+	context.setStrokeStyle("#333333");
+	context.stroke();
+	context.draw();
+		   }
+```
