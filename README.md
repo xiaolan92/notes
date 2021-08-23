@@ -88,3 +88,5 @@ drawSquare(context,x,y,w,h,radius){
 		          
                        }
 ```
+如图所示:
+![示意图](https://github.com/xiaolan92/notes/blob/master/images/WechatIMG30.jpeg)
