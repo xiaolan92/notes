@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <canvas  width="300" height="500" id="merge"></canvas>
+    <script>
+
+        function  drawSquare(context,x,y,w,h,radius){
+				context.beginPath();
+				context.moveTo(x + radius,y);
+				context.lineTo(x + w - radius,y),
+				// 右上角圆
+				context.arcTo(x + w,y,x + w,y + radius,radius);
+				context.lineTo(x + w,y + h - radius);
+				// 右下角圆
+				context.arcTo(x + w,y + h,x + y - radius,y+h,radius);
+				context.lineTo(x + radius,y + h);
+				// 左下角圆
+				context.arcTo(x,y+h,x,y+h-radius,radius)
+				context.lineTo(x,y+radius);
+				// 左上角
+				context.arcTo(x,y,x+radius,y,radius)
+				context.closePath();
+				
+			}
+		 function drawImg (context){
+				// this.drawSquare(context,1,1,329,550,30);
+				// context.setStrokeStyle('black');
+				// context.stroke();
+				// context.draw();
+				// context.save();
+				drawSquare(context,50,50,100,100,50);
+				context.clip();
+				context.strokeStyle='red';
+				context.stroke();
+                let image = new Image();
+                image.src="./images/1.jpeg";
+                image.onload = function (){
+                    context.drawImage(image,0,0,200,200);
+                }
+				// context.draw();
+				// context.drawImage(this.$refs.img,20,20,100,100);
+				// context.restore();
+				
+			}
+            let canvas = document.getElementById("merge");
+            let context = canvas.getContext("2d");
+            drawImg(context);
+		console.log((11111111).toLocaleString("en-US"));
+    </script>
+</body>
+</html>
