@@ -90,3 +90,16 @@ drawSquare(context,x,y,w,h,radius){
 ```
 如图所示:
 ![示意图](https://github.com/xiaolan92/notes/blob/master/images/WechatIMG30.jpeg)
+
+***
+ * 复制：将文本写入剪贴板(注意:只在localhost和https下生效)
+```
+  async copy (text){
+      try {
+         await navigator.clipboard.writeText(text);
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+```
