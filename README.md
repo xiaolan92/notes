@@ -103,3 +103,11 @@ drawSquare(context,x,y,w,h,radius){
       }
     }
 ```
+***
+* JSbase64编码、解码
+```
+window.btoa(args) // 编码
+
+window.atob(args) // 解码
+
+```
