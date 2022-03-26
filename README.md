@@ -19,10 +19,10 @@ let fomartTime = (time) =>{
 
         }
          console.log(fomartTime(4764)); // 01:19:24
- ```
+```
  倒计时就可以这样做(通常后端传的都是一个时间戳).
- 
- ***
+
+***
 今天(2021-04-25)做项目的时候遇到后端传来一个时间戳,要求转换为年月日时分秒的形式,为此来总结一波:
 ```
 /**
@@ -111,3 +111,15 @@ window.btoa(args) // 编码
 window.atob(args) // 解码
 
 ```
+
+* 粘性定位
+
+  ` position: sticky  `
+
+  > ​     基本上，可以看出是`position:relative`和`position:fixed`的结合体——当元素在屏幕内，表现为relative，就要滚出显示器屏幕的时候，表现为fixed。
+  >
+  > **注意:**
+  >
+  > > **1.position:sticky要想生效，top｜bottom| left|right 属性（看滚动方向）是必须要有明确的计算值的，否则fixed的表现不会出现。**
+  > >
+  > > **2. 父级及祖先元素不能有任何`overflow:visible`以外的overflow设置，否则没有粘滞效果。**
