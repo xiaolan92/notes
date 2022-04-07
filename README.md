@@ -157,3 +157,19 @@ window.atob(args) // 解码
   ```
 
   
+
+***
+
+* nginx静态资源服务器
+
+  ```
+  location ~* \.(png|gif|jpg|jpeg)$ {
+      root    /root/static/;  
+      autoindex on;
+      access_log  off;
+      expires     10h;# 设置过期时间为10小时          
+  }
+  
+  ```
+
+  
