@@ -29,30 +29,21 @@ let fomartTime = (time) =>{
  * 
  * @param {*} time  时间戳
  */
-export const formatDateTime = (time, seperator = "-") => {
-    let date = new Date(time),
-        fmt = `yyyy${seperator}MM${seperator}dd hh:mm:ss`;
-    const o = {
-        "M+": date.getMonth() + 1,
-        "d+": date.getDate(),
-        "h+": date.getHours(),
-        "m+": date.getMinutes(),
-        "s+": date.getSeconds(),
-    };
-    if (/(y+)/.test(fmt)) {
-        fmt.replace(RegExp.$1, date.getFullYear());
+const addZreo  = (number) =>{
+        return string(number).padStart(2,"0");
+      }
+      const formatTime = (time,seperator = "-") =>{
+        const _time = new Date(time);
+        const year =_time.getFullYear();
+        const month = _time.getMonth() + 1;
+        const day = _time.getDate();
+        const hours = _time.getHours();
+        const minutes = _time.getMinutes();
+        const seconds  = _time.getSeconds();
 
-    }
-    for (let k in o) {
-        if (new RegExp('(' + o[k] + ')').test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, String(o[k]).padStart(2,"0"));
+        return  `${year}${seperator}${addZreo(month)}${seperator}${addZreo(day)} ${addZreo(hours)}:${addZreo(minutes)}:${addZreo(seconds)}`;
 
-        }
-
-    }
-    return fmt;
-
-};
+      }
 
 console.log(formatDateTime(1572728572986)) // 2019-11-03 05:02:52
 console.log(formatDateTime("2019-10-11T05:04:02.506Z")) // 2019-10-11 13:04:02
