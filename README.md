@@ -210,3 +210,39 @@ window.atob(args) // 解码
   add_header X-Content-Type-Options nosniff; # 禁止服务器自动解析资源类型
   add_header X-Xss-Protection 1;             # 防XSS攻击
   ```
+
+***
+
+* css文字换行
+
+      ```
+      white-space:normal;
+      word-break:break-all;
+      word-wrap:break-word;
+      ```
+
+
+
+*  css多行省略
+
+  ```
+  width:200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;（行数）
+  -webkit-box-orient: vertical;
+  ```
+
+* css单行省略
+
+  ```
+  width:200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  word-break:break-all;
+  word-wrap:break-word;
+  ```
+
+  
