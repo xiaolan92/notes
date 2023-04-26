@@ -235,5 +235,9 @@ window.atob(args) // 解码
   word-break:break-all;
   word-wrap:break-word;
   ```
+***
+神奇软件网站:
+```
+https://appstorrent.ru/
 
-  
+```
