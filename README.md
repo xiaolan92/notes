@@ -270,3 +270,7 @@ export const throttle = (fn, delay = 3000) => {
   };
 };
 ```
+***
+react 表格高度自适应:
+<br/>
+` scroll={{ y: 'calc(100vh - 表头与顶部的距离px)' }} `
