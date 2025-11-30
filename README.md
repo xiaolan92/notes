@@ -279,3 +279,31 @@ react 表格高度自适应:
 ```
 string.includes(searchValue, start) 第二个参数从是指定下标开始查找
 ```
+***
+uniapp 中滚动
+```
+import { useThrottleFn } from '@vueuse/shared';
+
+export default function useScrollToBottom(el: string) {
+  const scrollTop = ref(0);
+  const instance = getCurrentInstance()?.proxy;
+
+  // 使用节流函数控制滚动频率
+  const scrollToBottom = useThrottleFn(() => {
+    nextTick(() => {
+      const query = uni.createSelectorQuery().in(instance);
+      query.select(el).boundingClientRect((data: any) => {
+        if (data && data.height > 0) {
+          scrollTop.value = data.height;
+        }
+      }).exec();
+    });
+  }, 500);
+
+  return {
+    scrollTop,
+    scrollToBottom,
+  };
+}
+
+```
